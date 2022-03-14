@@ -16,3 +16,16 @@ for (const link of links) {
     nav.classList.remove('show') //REMOVE A CLASS 'SHOW' QUANDO CLICA NO LINK
   })
 }
+
+// MUDAR O HEADER DA PÁGINA NA HORA DO SCROLL
+
+const header = document.querySelector('#header')
+const navHeith = header.offsetHeight
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY >= navHeith) {
+    header.classList.add('scroll')
+  } else {
+    header.classList.remove('scroll')
+  }
+})

@@ -31,6 +31,10 @@ img {
   --body-color: hsl(0 0% 98%);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font: 400 1rem 'Raleway', sans-serif;
   background: var(--body-color);
@@ -81,12 +85,20 @@ body {
   background: var(--body-color);
 }
 
+#header.scroll {
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.15);
+}
+
 nav {
   height: var(--header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+}
+
+#header .container .logo img {
+  width: 12rem;
 }
 
 nav ul li {
@@ -121,6 +133,12 @@ nav ul li a:hover::after {
 nav .menu {
   opacity: 0;
   visibility: hidden;
+  top: -20rem;
+  transition: 0.2s;
+}
+
+nav .menu ul {
+  display: none;
 }
 
 nav.show ul.grid {
@@ -130,6 +148,11 @@ nav.show ul.grid {
 nav.show .menu {
   display: grid;
   place-content: center;
+  top: 0;
+}
+
+nav.show .menu ul {
+  display: grid;
 }
 
 nav.show .menu {
@@ -148,6 +171,7 @@ nav.show .menu {
 nav.show div.icon-close {
   visibility: visible;
   opacity: 1;
+  top: 1.5rem;
 }
 
 .toggle {
@@ -162,6 +186,12 @@ nav .icon-close {
 
   position: absolute;
   right: 1.5rem;
+  top: -1.5rem;
+  transition: 0.2s;
+}
+
+.header .logo {
+  width: 3rem;
 }
 
 .logo {
@@ -189,6 +219,14 @@ main {
 
 .section {
   padding: 5rem 0;
+}
+
+.section .title {
+  margin-bottom: 1rem;
+}
+
+.section header {
+  margin-bottom: 4rem;
 }
 
 #home {
@@ -238,3 +276,84 @@ main {
 }
 
 /* ========== SESSÃO SOBRE ============== */
+#about {
+  background-color: white;
+}
+#about .container {
+  margin: 0;
+}
+#about .image {
+  position: relative;
+}
+#about .image::before {
+  content: '';
+  height: 100%;
+  width: 100%;
+  background-color: var(--base-color-second);
+  position: absolute;
+  top: -8.3%;
+  left: -33%;
+  z-index: 0;
+}
+
+#about .image img {
+  position: relative;
+  /* border: 0.5px solid var(--base-color); Borda imagem */
+}
+
+#about .image img,
+#about .image::before {
+  border-radius: 0.25rem;
+}
+#about .text {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+#about .text h1 {
+  margin-bottom: 1rem;
+}
+
+#about .text p {
+  margin-bottom: 1rem;
+  max-width: 100%;
+}
+
+.divider-2 {
+  height: 1px;
+  background: linear-gradient(
+    270deg,
+    hsla(var(--hue), 65%, 88%, 0.34),
+    hsla(var(--hue), 36%, 57%, 1)
+  );
+}
+
+.card i {
+  color: var(--base-color);
+  font-size: 5rem;
+  margin: 1rem;
+}
+
+/* ========== SERVICES ============== */
+
+.cards.grid {
+  gap: 1.5rem;
+}
+
+.card {
+  padding: 3.625rem 2rem;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.08);
+  border-bottom: 0.25rem solid var(--base-color);
+  border-radius: 0.25rem 0.25rem 0 0;
+  text-align: center;
+}
+
+.card .icones {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card .title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
