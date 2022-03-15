@@ -357,3 +357,7 @@ main {
   font-size: 1.5rem;
   margin-bottom: 0.75rem;
 }
+
+.owl-carousel img {
+  height: 25rem;
+}
